@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './index.css'
 const predefinedUsername = "adminlogin@gmail.com";
 const predefinedPassword = "admin12";
 
@@ -56,7 +57,7 @@ function LogIn() {
         </form>
         <span className="signUp-link">
             Not a member?
-            <a href="sign.tsx">sign up</a>
+            <a href="/signup">sign up</a>
         </span>
         </div>
     )
