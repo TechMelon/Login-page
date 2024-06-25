@@ -11,10 +11,22 @@ export const signup = async (username: string, email: string, password: string) 
     return generateToken(user);
 };
 
+export const login = async (email: string, password: string) => {
+    const user = await findUserByEmail(email);
+    if (!user) {
+        throw new Error('Invalid email or password');
+    }
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+        throw new Error('Invalid email or password');
+    }
+    return generateToken(user);
+};
+
 const generateToken = (user: IUser) => {
     return jwt.sign(
         { id: user.id, email: user.email },
         process.env.JWT_SECRET as string,
-        { expiresIn: '1h'}
+        { expiresIn: '1h' }
     );
 };

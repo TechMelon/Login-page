@@ -9,3 +9,7 @@ export const createUser = async (username: string, email: string, password: stri
 export const findUserByEmail = async (email: string): Promise<IUser | null> => {
     return User.findOne({ email });
 };
+
+export const findUserById = async (id: string): Promise<IUser | null> => {
+    return User.findById(id);
+};

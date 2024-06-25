@@ -56,7 +56,7 @@ function Signup() {
         password,
       });
       console.log('Form submitted',response.data);
-      // alert('Form submitted');
+      alert('Account created');
       setErrorMessage('');
 
     } catch (error) {
